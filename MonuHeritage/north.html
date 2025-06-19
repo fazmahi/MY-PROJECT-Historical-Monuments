@@ -1,0 +1,285 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>New North - MonuHeritage</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Animate CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #f7f9fc;
+      color: #2c3e50;
+      font-family: 'Roboto', sans-serif;
+    }
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #e74c3c;
+      font-family: 'Dancing Script', cursive;
+    }
+    .navbar-dark .navbar-nav .nav-link.active {
+      font-weight: 600;
+      color: #e74c3c;
+    }
+    .carousel-item img {
+      height: 500px;
+      object-fit: cover;
+    }
+    section {
+      padding: 60px 15px;
+    }
+    footer {
+      background: #2c3e50;
+      color: #fff;
+      padding: 25px 0;
+      text-align: center;
+      font-size: 1rem;
+    }
+    .zoom-img {
+      transition: transform 0.5s ease;
+      height: 300px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .zoom-img:hover {
+      transform: scale(1.1);
+    }
+    .card {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      background-color: #fff;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+    .card-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.7rem;
+      color: #e74c3c;
+      text-align: center;
+    }
+    .card-text {
+      text-align: justify;
+      color: #34495e;
+    }
+    #searchInput {
+      border: 2px solid #e74c3c;
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-size: 1.1rem;
+    }
+    #searchInput:focus {
+      box-shadow: 0 0 10px rgba(231, 76, 60, 0.4);
+      outline: none;
+    }
+    .eiffel-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      color: #e74c3c;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .eiffel-paragraph {
+      background-color: #f0f4f8;
+      padding: 25px 30px;
+      border-radius: 12px;
+      max-width: 850px;
+      margin: 30px auto;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      font-size: 1.2rem;
+      line-height: 1.7;
+    }
+    #topBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 12px 18px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    #topBtn:hover {
+      background-color: #c0392b;
+    }
+    @media (max-width: 767px) {
+      .carousel-item img { height: 300px; }
+      .zoom-img { height: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="logopic.png" style="height: 40px; width: 40px; margin-right: 10px;" alt="Logo" />
+        MonuHeritage
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="north.html">NORTH</a></li>
+          <li class="nav-item"><a class="nav-link" href="south.html">SOUTH</a></li>
+          <li class="nav-item"><a class="nav-link" href="east.html">EAST</a></li>
+          <li class="nav-item"><a class="nav-link" href="west.html">WEST</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Intro -->
+  <section class="container text-center py-5">
+    <h1 class="animate__animated animate__fadeInDown">🧭 New North Heritage Wonders</h1>
+    <p class="lead text-muted animate__animated animate__fadeInUp">
+      Welcome to the <strong>New North</strong> of <span style="color:#e74c3c"><strong>MonuHeritage</strong></span> — where historic Indian landmarks tell tales of legacy and pride.
+    </p>
+  </section>
+
+  <!-- Carousel -->
+  <header class="mb-5">
+    <div id="monumentCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+      <div class="carousel-inner rounded-4 overflow-hidden shadow">
+        <div class="carousel-item active">
+          <img src="Red-Fort-Old-Delhi-India pic 1.webp" class="d-block w-100" alt="Red Fort" />
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded px-3 py-2">
+            <h5>Red Fort - Delhi</h5>
+            <p>Historic Mughal Fort built by Shah Jahan.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="Delhi-Qutub-Minar-pic2.jpg" class="d-block w-100" alt="Qutub Minar" />
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded px-3 py-2">
+            <h5>Qutub Minar - Delhi</h5>
+            <p>The tallest brick minaret in the world.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="india-gate-delhi-pic3.jpeg" class="d-block w-100" alt="India Gate" />
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded px-3 py-2">
+            <h5>India Gate - Delhi</h5>
+            <p>War memorial for Indian soldiers.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#monumentCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#monumentCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Search -->
+  <section class="container mb-5">
+    <input type="text" id="searchInput" placeholder="Search monuments..." class="form-control shadow-sm" onkeyup="searchMonuments()" />
+  </section>
+
+  <!-- Cards -->
+  <section class="container mb-5">
+    <div class="row g-4" id="monumentsCards">
+      <!-- Red Fort -->
+      <div class="col-md-4" data-name="red fort">
+        <div class="card animate__animated animate__fadeInUp">
+          <img src="Red-Fort-Old-Delhi-India pic 1.webp" class="zoom-img" alt="Red Fort" />
+          <div class="card-body">
+            <h3 class="card-title">Red Fort</h3>
+            <p class="card-text">Historic Mughal fort built by Shah Jahan, a UNESCO World Heritage site and Delhi's pride.</p>
+            <p><strong>Location:</strong> Delhi</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Qutub Minar -->
+      <div class="col-md-4" data-name="qutub minar">
+        <div class="card animate__animated animate__fadeInUp">
+          <img src="Delhi-Qutub-Minar-pic2.jpg" class="zoom-img" alt="Qutub Minar" />
+          <div class="card-body">
+            <h3 class="card-title">Qutub Minar</h3>
+            <p class="card-text">A 73-meter tall tower with intricate carvings and inscriptions — Delhi's ancient architectural marvel.</p>
+            <p><strong>Location:</strong> Delhi</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- India Gate -->
+      <div class="col-md-4" data-name="india gate">
+        <div class="card animate__animated animate__fadeInUp">
+          <img src="India_Gate_pic.jpg" class="zoom-img" alt="India Gate" />
+          <div class="card-body">
+            <h3 class="card-title">India Gate</h3>
+            <p class="card-text">A national war memorial dedicated to Indian soldiers of World War I — a symbol of sacrifice and pride.</p>
+            <p><strong>Location:</strong> Delhi</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Did You Know -->
+  <section class="container mb-5">
+    <h2 class="eiffel-title animate__animated animate__fadeInDown">Did You Know?</h2>
+    <p class="eiffel-paragraph animate__animated animate__fadeInUp">
+      🏰 <strong>The Red Fort</strong> was once home to the emperors of the Mughal dynasty for nearly 200 years and now hosts India's Independence Day celebrations.
+    </p>
+    <p class="eiffel-paragraph animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+      🗼 <strong>Qutub Minar</strong> is made of red sandstone and marble, and its base diameter is 14.3 meters — almost the width of a small road!
+    </p>
+    <p class="eiffel-paragraph animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+      🪖 <strong>India Gate</strong> holds an eternal flame (Amar Jawan Jyoti) which burns day and night under its arch to honor the martyrs.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 MonuHeritage • Crafted with ❤️ by YourName
+  </footer>
+
+  <!-- Top Button -->
+  <button onclick="topFunction()" id="topBtn" title="Go to top">&#8679;</button>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JavaScript -->
+  <script>
+    // Scroll to top
+    const topBtn = document.getElementById("topBtn");
+    window.onscroll = () => {
+      topBtn.style.display = (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "block" : "none";
+    };
+    function topFunction() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // Search functionality
+    function searchMonuments() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('#monumentsCards > div');
+      cards.forEach(card => {
+        const name = card.getAttribute('data-name');
+        card.style.display = name.includes(input) ? '' : 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>

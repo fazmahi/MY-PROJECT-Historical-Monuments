@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Historical Monuments</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Animate CSS for animations -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    /* Custom styles */
+    body {
+      background-color: #f7f9fc;
+      color: #2c3e50;
+      font-family: 'Roboto', sans-serif;
+    }
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #e74c3c;
+      font-family: 'Dancing Script', cursive;
+      letter-spacing: 2px;
+    }
+    .navbar-dark .navbar-nav .nav-link.active {
+      font-weight: 600;
+      color: #e74c3c;
+    }
+    .carousel-item img {
+      height: 500px;
+      object-fit: cover;
+      width: 100%;
+    }
+    section {
+      padding: 60px 15px;
+    }
+    footer {
+      background: #2c3e50;
+      color: #fff;
+      padding: 25px 0;
+      text-align: center;
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+    .zoom-img {
+      transition: transform 0.5s ease;
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px 8px 0 0;
+    }
+    .zoom-img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Card styling */
+    .card {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      background-color: #fff;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+    .card-body {
+      padding: 20px 25px;
+    }
+    .card-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.7rem;
+      color: #e74c3c;
+      margin-bottom: 15px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .card-text {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #34495e;
+      text-align: justify;
+    }
+
+    #searchInput {
+      border: 2px solid #e74c3c;
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-size: 1.1rem;
+      transition: box-shadow 0.3s ease;
+    }
+    #searchInput:focus {
+      box-shadow: 0 0 10px rgba(231, 76, 60, 0.4);
+      outline: none;
+    }
+
+    /* Paragraph styling for bio */
+    .eiffel-paragraph {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: #34495e;
+      background-color: #f0f4f8;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      max-width: 850px;
+      margin: 30px auto;
+      transition: box-shadow 0.3s ease;
+    }
+    .eiffel-paragraph:hover {
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    #topBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 99;
+      font-size: 20px;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 12px 18px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    #topBtn:hover {
+      background-color: #c0392b;
+      transform: scale(1.1);
+    }
+
+    /* Title styling for bio */
+    .eiffel-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.8rem;
+      color: #e74c3c;
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 767px) {
+      .carousel-item img {
+        height: 300px;
+      }
+      .zoom-img {
+        height: 200px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+                
+                         <!-- LETSS START CREATE A PROJECT .... -->
+
+      <!-- Add this inside body, maybe top-right of the page -->
+
+    <button onclick="toggleTheme()" id="themeBtn" class="btn btn-outline-danger position-fixed top-0 end-0 m-3">🌙 
+      Dark Mode</button>
+ 
+            <!-- Add at the very top of <body> -->
+
+    <div id="scrollProgress" style="position:fixed; top:0; left:0; height:5px; background:#e74c3c; width:0%; z-index:9999;"></div>
+
+  <!-- Navbar Start with logo -->
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>North Zone - MonuHeritage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap" rel="stylesheet" />
+  <link href="../assets/css/style.css" rel="stylesheet" />
+</head>
+<body>
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="logopic.png" style="height: 40px; width: 40px; margin-right: 10px;" alt="MonuHeritage Logo" />
+      MonuHeritage
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <!-- North Zone Link -->
+        <li class="nav-item">
+          <a class="nav-link" href="north.html">NORTH</a>
+        </li>
+        <!-- South Zone Link -->
+        <li class="nav-item">
+          <a class="nav-link" href="south.html">SOUTH</a>
+        </li>
+        <!-- East Zone Link -->
+        <li class="nav-item">
+          <a class="nav-link" href="east.html">EAST</a>
+        </li>
+        <!-- West Zone Link -->
+        <li class="nav-item">
+          <a class="nav-link" href="west.html">WEST</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Navbar End -->
+ 
+  <!-- Page Content -->
+<section class="container py-5">
+  <h1 class="text-center mb-3 animate__animated animate__fadeInDown">🧭 North Zone Heritage Wonders</h1>
+  <p class="lead text-center text-muted px-3 animate__animated animate__fadeInUp" style="max-width: 800px; margin: 0 auto;">
+    Welcome to the <strong>North Zone</strong> of <span style="color: #e74c3c;"><strong>MonuHeritage</strong></span>, 
+    where timeless monuments meet rich history. Discover majestic creations like the <em>Taj Mahal</em> and many more architectural jewels that have stood the test of time.
+  </p>
+</section>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+        <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="logopic.png" alt="MonuHeritage Logo" style="height: 40px; width: 40px; margin-right: 10px; object-fit: contain;" />
+      MonuHeritage
+    </a>
+
+  <!-- Navbar End with logo  -->
+
+  <!-- Header with Carousel Start -->
+  <header id="home" class="mb-5">
+    <div id="monumentCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+      <div class="carousel-inner rounded-4 overflow-hidden shadow">
+        <div class="carousel-item active animate__animated animate__fadeIn">
+          <img src="Taj Mahal - Indiapic2.png" class="d-block w-100" alt="Taj Mahal" />
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded px-3 py-2">
+            <h5>Taj Mahal - India</h5>
+            <p>The Symbol of Eternal Love.</p>
+          </div>
+        </div>
+        <div class="carousel-item animate__animated animate__fadeIn">
+          <img src="Great Wall of Chinapic3.png" class="d-block w-100" alt="Great Wall of China" />
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded px-3 py-2">
+            <h5>Great Wall of China</h5>
+            <p>World's Longest Wall.</p>
+          </div>
+        </div>
+        <div class="carousel-item animate__animated animate__fadeIn">
+          <img src="Colosseum - Italypic1.png" class="d-block w-100" alt="Colosseum" />
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded px-3 py-2">
+            <h5>Colosseum - Italy</h5>
+            <p>The Iconic Roman Amphitheater.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#monumentCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#monumentCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </header>
+  <!-- Header with Carousel End -->
+
+ <!-- Did You Know Section Start -->
+<section class="container my-5">
+  <h2 class="text-center mb-4 animate__animated animate__fadeInDown">Did You Know?</h2>
+  <div class="row g-4">
+
+    <!-- Taj Mahal -->
+    <div class="col-md-4 animate__animated animate__fadeInUp">
+      <div class="card h-100 shadow-sm text-center">
+        <div class="card-body">
+          <h5 class="card-title text-danger">🕌 Taj Mahal</h5>
+          <p class="card-text">
+            Built by Emperor Shah Jahan, this marble wonder <strong>changes color</strong> through the day — pink at sunrise, white at noon, golden at night.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Great Wall -->
+    <div class="col-md-4 animate__animated animate__fadeInUp delay-1s">
+      <div class="card h-100 shadow-sm text-center">
+        <div class="card-body">
+          <h5 class="card-title text-danger">🧱 Great Wall of China</h5>
+          <p class="card-text">
+            Spanning over <strong>21,000 km</strong>, it's the longest structure ever built — even visible from some parts of space.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Colosseum -->
+    <div class="col-md-4 animate__animated animate__fadeInUp delay-2s">
+      <div class="card h-100 shadow-sm text-center">
+        <div class="card-body">
+          <h5 class="card-title text-danger">🏟️ Colosseum</h5>
+          <p class="card-text">
+            Once held over <strong>50,000 spectators</strong> for gladiator fights and events — it’s ancient Rome’s grand stadium.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- Did You Know Section End -->
+
+  <!-- Search Monuments Section Start -->
+<section class="container my-5">
+  <h2 class="text-center mb-4 animate__animated animate__fadeInDown">🔍 Find Your Monument</h2>
+  <p class="text-center text-muted mb-4 px-3 animate__animated animate__fadeInUp" style="max-width: 700px; margin: 0 auto;">
+    Type the name of any world-famous monument below — like <strong>Taj Mahal</strong>, <strong>Colosseum</strong>, or <strong>Great Wall</strong> — and quickly explore its info. ✨
+  </p>
+
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="input-group shadow-sm animate__animated animate__fadeInUp">
+        <span class="input-group-text bg-danger text-white fw-bold">🔍</span>
+        <input 
+          type="text"
+          id="searchInput"
+          class="form-control form-control-lg"
+          placeholder="Search monuments by name..."
+          onkeyup="searchMonuments()"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Search Monuments Section End -->
+
+  <!-- Famous Monuments Section Start -->
+  <section class="container">
+    <div class="row text-center">
+      <h2 class="mb-5 animate__animated animate__fadeInDown">Famous Monuments</h2>
+
+      <!-- Monument 1 -->
+      <div class="col-md-4 mb-4 animate__animated animate__fadeInUp">
+        <div class="card">
+          <img src="Eiffel Tower - Francepic4.png" class="zoom-img" alt="Eiffel Tower" />
+          <div class="card-body">
+            <h5 class="card-title">Eiffel Tower - France</h5>
+            <p class="card-text">
+              The Eiffel Tower is a renowned and historic landmark located in Paris, France. Completed in 1889, it stands at a height of 330 meters (1,083 feet) and was initially 
+              constructed for the 1889 Exposition Universelle (World's Fair).
+              The Eiffel Tower is constructed from wrought iron, consisting of 18,038 metal parts connected by 2.5 million rivets, and weighs approximately 10,100 tons.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Monument 2 -->
+      <div class="col-md-4 mb-4 animate__animated animate__fadeInUp">
+        <div class="card">
+          <img src="Christ the Redeemer - Brazilpic5.png" class="zoom-img" alt="Christ the Redeemer" />
+          <div class="card-body">
+            <h5 class="card-title">Christ the Redeemer - Brazil</h5>
+            <p class="card-text">
+              Christ the Redeemer statue stands majestically atop Mount Corcovado in Rio de Janeiro, Brazil. Completed in 1931, this 30-meter-tall statue is an iconic symbol of Christianity and a testament to the artistry of sculptor Paul Landowski 
+              and engineer Heitor da Silva Costa. Its open arms embrace the city, offering a message of peace and unity.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Monument 3 -->
+      <div class="col-md-4 mb-4 animate__animated animate__fadeInUp">
+        <div class="card">
+          <img src="Machu Picchu - Perupic6.png" class="zoom-img" alt="Machu Picchu" />
+          <div class="card-body">
+            <h5 class="card-title">Machu Picchu - Peru</h5>
+            <p class="card-text">
+              Perched high in the Andes Mountains, Machu Picchu is a 15th-century Incan citadel renowned for its stunning architecture and breathtaking views. Often referred to as the "Lost City of the Incas,"
+              it remains one of the most iconic and visited archaeological sites in the world.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- Famous Monuments Section End -->
+
+  <!-- Bio Section Start -->
+<section class="container my-5">
+  <div class="text-center mb-4">
+    <h2 class="eiffel-title animate__animated animate__fadeInDown">
+      🗼 Eiffel Tower – The Iron Lady of Paris
+    </h2>
+    <p class="text-muted animate__animated animate__fadeInUp" style="max-width: 800px; margin: 0 auto;">
+      A global icon of love and architecture, the Eiffel Tower stands tall in the heart of Paris, radiating elegance since 1889.
+    </p>
+  </div>
+
+  <div class="eiffel-paragraph animate__animated animate__fadeInUp">
+    Originally built as the entrance arch to the 1889 World’s Fair, the Eiffel Tower was once labeled an eyesore by critics. 
+    But today, with its 18,038 iron parts and 2.5 million rivets, it attracts over 7 million visitors annually. 
+    Named after engineer Gustave Eiffel, the tower is more than just steel — it's a timeless symbol of French innovation and artistic pride.
+  </div>
+</section>
+<!-- Bio Section End -->
+
+   <section class="container text-center my-5">
+  <h2 class="animate__animated animate__fadeInDown mb-3">🎲 Random Monument Fact</h2>
+  <p id="randomFact" class="lead text-muted">Click below to discover something cool!</p>
+  <button class="btn btn-danger mt-2" onclick="showRandomFact()">Show Me a Fact!</button>
+   </section>
+  
+  <!-- Footer Start -->
+<footer class="text-center bg-dark text-white py-4">
+  <p class="mb-1">© 2025 <strong>MonuHeritage</strong>. All Rights Reserved.</p>
+  <p class="mb-0" style="font-style: italic; color: #f8c291;">
+    Lovingly dedicated to <strong>Miss Nimra</strong> — the inspiration behind this journey.
+  </p>
+</footer>
+<!-- Footer End -->
+
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script>
+    // Scroll to top button functionality
+    const topBtn = document.getElementById('topBtn');
+
+    window.onscroll = function () {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Search monuments function (basic filtering by monument names)
+    function searchMonuments() {
+      const input = document.getElementById('searchInput');
+      const filter = input.value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        if (title.includes(filter)) {
+          card.parentElement.style.display = '';
+        } else {
+          card.parentElement.style.display = 'none';
+        }
+      });
+    }
+
+    let darkMode = false;
+  function toggleTheme() {
+    document.body.classList.toggle("bg-dark");
+    document.body.classList.toggle("text-white");
+
+    // Change navbar
+    document.querySelector(".navbar").classList.toggle("navbar-dark");
+    document.querySelector(".navbar").classList.toggle("bg-dark");
+    document.querySelector(".navbar").classList.toggle("navbar-light");
+    document.querySelector(".navbar").classList.toggle("bg-light");
+
+    // Toggle button text
+    darkMode = !darkMode;
+    document.getElementById("themeBtn").innerText = darkMode ? "☀️ Light Mode" : "🌙 Dark Mode";
+  }
+
+    const facts = [
+    "The Eiffel Tower was supposed to be dismantled in 20 years.",
+    "The Taj Mahal’s minarets are slightly tilted outward to protect the tomb.",
+    "The Great Wall of China took over 2,000 years to complete.",
+    "Machu Picchu was never discovered by the Spanish conquistadors.",
+    "The Colosseum once had a retractable roof made of canvas!",
+    "Christ the Redeemer was struck by lightning in 2014, losing part of a finger."
+  ];
+
+  function showRandomFact() {
+    const index = Math.floor(Math.random() * facts.length);
+    document.getElementById('randomFact').textContent = facts[index];
+  }
+
+    window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = (scrollTop / docHeight) * 100;
+    document.getElementById("scrollProgress").style.width = scrolled + "%";
+  });
+
+  </script>
+</body>
+</html>

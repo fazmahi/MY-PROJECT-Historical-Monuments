@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>East Zone - MonuHeritage</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap" rel="stylesheet" />
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f7f9fc;
+      color: #2c3e50;
+      font-family: 'Roboto', sans-serif;
+    }
+    .navbar-brand {
+      font-family: 'Dancing Script', cursive;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #e74c3c;
+      transition: color 0.3s ease;
+    }
+    .navbar-brand:hover {
+      color: #c0392b;
+      text-decoration: none;
+    }
+    .navbar-nav .nav-link {
+      font-weight: 600;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #e74c3c;
+    }
+    .navbar-nav .nav-link.active {
+      color: #e74c3c;
+      font-weight: 700;
+      border-bottom: 2px solid #e74c3c;
+    }
+    .carousel-item img {
+      height: 500px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .carousel-caption {
+      font-weight: 600;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+    }
+    .card-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.6rem;
+      color: #e74c3c;
+    }
+    .zoom-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      border-radius: 8px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    .zoom-img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+    }
+    .eiffel-paragraph {
+      background-color: #f0f4f8;
+      padding: 25px;
+      border-radius: 12px;
+      margin: 30px auto;
+      max-width: 850px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    footer {
+      background: #2c3e50;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer .social-icons a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 1.3rem;
+      transition: color 0.3s ease;
+    }
+    footer .social-icons a:hover {
+      color: #e74c3c;
+    }
+    /* Did You Know cards */
+    .card .card-title i {
+      color: #e67e22;
+      font-size: 1.8rem;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .btn-explore {
+      background-color: #e74c3c;
+      border: none;
+      font-size: 1.25rem;
+      padding: 12px 28px;
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+    }
+    .btn-explore:hover {
+      background-color: #c0392b;
+    }
+    /* Input box container */
+    .explore-container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .explore-input {
+      width: 100%;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border: 2px solid #e74c3c;
+      border-radius: 50px;
+      outline: none;
+      transition: border-color 0.3s ease;
+      margin-bottom: 10px;
+    }
+    .explore-input:focus {
+      border-color: #c0392b;
+      box-shadow: 0 0 8px #e74c3caa;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="logopic.png" alt="Logo" style="height: 40px; margin-right: 10px;" />
+      MonuHeritage
+    </a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navContent">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="north.html">NORTH</a></li>
+        <li class="nav-item"><a class="nav-link" href="south.html">SOUTH</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#">EAST</a></li>
+        <li class="nav-item"><a class="nav-link" href="west.html">WEST</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Intro Section -->
+<section class="container py-5">
+  <h1 class="text-center animate__animated animate__fadeInDown">🌅 East Zone Heritage Marvels</h1>
+  <p class="lead text-center text-muted animate__animated animate__fadeInUp" style="max-width: 800px; margin: 0 auto;">
+    Discover the spiritual and historical gems of East India, from the iconic <em>Konark Sun Temple</em> to the ancient <em>Jagannath Temple</em> of Puri.
+  </p>
+</section>
+
+<!-- Carousel -->
+<header class="mb-5">
+  <div id="carouselEast" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselEast" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Konark"></button>
+      <button type="button" data-bs-target="#carouselEast" data-bs-slide-to="1" aria-label="Jagannath"></button>
+      <button type="button" data-bs-target="#carouselEast" data-bs-slide-to="2" aria-label="Lingaraj"></button>
+    </div>
+    <div class="carousel-inner rounded-4 overflow-hidden shadow">
+      <div class="carousel-item active">
+        <img src="Konark Sun Temple pic.jpg" class="d-block w-100" alt="Konark Sun Temple" />
+        <div class="carousel-caption bg-dark bg-opacity-50 rounded">
+          <h5>Konark Sun Temple</h5>
+          <p>The Black Pagoda of Odisha</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="Jagannath Temple pic.jpg" class="d-block w-100" alt="Jagannath Temple" />
+        <div class="carousel-caption bg-dark bg-opacity-50 rounded">
+          <h5>Jagannath Temple</h5>
+          <p>The Heart of Puri's Devotion</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="Lingaraj Temple pic.jpg" class="d-block w-100" alt="Lingaraj Temple" />
+        <div class="carousel-caption bg-dark bg-opacity-50 rounded">
+          <h5>Lingaraj Temple</h5>
+          <p>A Stunning Example of Kalinga Architecture</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselEast" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselEast" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</header>
+
+<!-- Did You Know Section -->
+<section class="container my-5">
+  <h2 class="text-center mb-4">Did You Know?</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title"><i class="fa-solid fa-sun"></i> Konark Sun Temple</h5>
+          <p class="card-text">Built in the 13th century, it is designed as a colossal chariot with 24 wheels, each intricately carved.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title"><i class="fa-solid fa-temple"></i> Jagannath Temple</h5>
+          <p class="card-text">Famous for the annual Rath Yatra festival, attracting millions of devotees from around the world.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title"><i class="fa-solid fa-landmark"></i> Lingaraj Temple</h5>
+          <p class="card-text">An excellent example of Kalinga architecture, it is one of the oldest temples in Bhubaneswar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Monument Cards -->
+<section class="container my-5">
+  <h2 class="text-center mb-5">Famous East Monuments</h2>
+  <div class="row text-center">
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm border-0">
+        <img src="Konark Sun Temple pic.jpg" class="zoom-img" alt="Konark Sun Temple" />
+        <div class="card-body">
+          <h5 class="card-title">Konark Sun Temple - Odisha</h5>
+          <p class="card-text">A magnificent 13th-century temple built in the shape of a giant chariot, dedicated to the Sun God Surya.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm border-0">
+        <img src="Jagannath Temple pic.jpg" class="zoom-img" alt="Jagannath Temple" />
+        <div class="card-body">
+          <h5 class="card-title">Jagannath Temple - Puri</h5>
+          <p class="card-text">One of the Char Dham pilgrimage sites, famous for its vibrant Rath Yatra festival and rich spiritual history.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm border-0">
+        <img src="Lingaraj Temple pic.jpg" class="zoom-img" alt="Lingaraj Temple" />
+        <div class="card-body">
+          <h5 class="card-title">Lingaraj Temple - Bhubaneswar</h5>
+          <p class="card-text">A splendid example of Kalinga style architecture, this temple is a central attraction in Odisha's temple city.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bio Highlight -->
+<section class="container my-5">
+  <div class="text-center mb-4">
+    <h2 class="eiffel-title">☀️ Konark Sun Temple – The Black Pagoda</h2>
+    <p class="text-muted" style="max-width: 800px; margin: 0 auto;">An architectural marvel that tells the story of Odisha's rich heritage and devotion.</p>
+  </div>
+  <div class="eiffel-paragraph">
+    The Konark Sun Temple, built in the 13th century by King Narasimhadeva I, is designed as a gigantic chariot with elaborately carved wheels, pillars, and walls.
+    It symbolizes the Sun God's chariot racing across the sky and remains a UNESCO World Heritage Site admired worldwide.
+  </div>
+</section>
+
+<!-- Explore Monument Input Section -->
+<section class="text-center my-5">
+  <h2 class="mb-3">🎯 Explore More</h2>
+  <p>Type a monument name and learn something new!</p>
+  <div class="explore-container">
+    <input type="text" id="monumentInput" class="explore-input" placeholder="Enter Konark, Jagannath, or Lingaraj" />
+    <button class="btn btn-explore" onclick="exploreMonument()">Explore Monument</button>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 <strong>MonuHeritage</strong>. All Rights Reserved.</p>
+  <p style="font-style: italic;">Specially created with ❤️ for Miss Nimra and the heritage of East India.</p>
+  <div class="social-icons">
+    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JavaScript Explore Monument Function -->
+<script>
+  function exploreMonument() {
+    const monumentInput = document.getElementById('monumentInput');
+    const monument = monumentInput.value.trim().toLowerCase();
+
+    if (!monument) {
+      alert("Please enter a monument name!");
+      return;
+    }
+
+    let message = "";
+
+    switch (monument) {
+      case "konark":
+        message = "The Konark Sun Temple is known as the Black Pagoda and is designed like a giant chariot.";
+        break;
+      case "jagannath":
+        message = "Jagannath Temple is famous for its Rath Yatra festival, celebrated with great devotion.";
+        break;
+      case "lingaraj":
+        message = "Lingaraj Temple is one of the oldest temples in Bhubaneswar, showcasing classic Kalinga architecture.";
+        break;
+      default:
+        message = "Sorry! No information available for that monument.";
+    }
+
+    alert(message);
+    monumentInput.value = ""; // Clear input after alert
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>West Zone - MonuHeritage</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap" rel="stylesheet" />
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f7f9fc;
+      color: #2c3e50;
+      font-family: 'Roboto', sans-serif;
+    }
+    .navbar-brand {
+      font-family: 'Dancing Script', cursive;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #e74c3c;
+      transition: color 0.3s ease;
+    }
+    .navbar-brand:hover {
+      color: #c0392b;
+      text-decoration: none;
+    }
+    .navbar-nav .nav-link {
+      font-weight: 600;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #e74c3c;
+    }
+    .navbar-nav .nav-link.active {
+      color: #e74c3c;
+      font-weight: 700;
+      border-bottom: 2px solid #e74c3c;
+    }
+    .carousel-item img {
+      height: 500px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .carousel-caption {
+      font-weight: 600;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+    }
+    .card-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.6rem;
+      color: #e74c3c;
+    }
+    .zoom-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      border-radius: 8px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    .zoom-img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+    }
+    .bio-paragraph {
+      background-color: #f0f4f8;
+      padding: 25px;
+      border-radius: 12px;
+      margin: 30px auto;
+      max-width: 850px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    footer {
+      background: #2c3e50;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer .social-icons a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 1.3rem;
+      transition: color 0.3s ease;
+    }
+    footer .social-icons a:hover {
+      color: #e74c3c;
+    }
+    /* Did You Know cards */
+    .card .card-title i {
+      color: #e67e22;
+      font-size: 1.8rem;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .btn-explore {
+      background-color: #e74c3c;
+      border: none;
+      font-size: 1.25rem;
+      padding: 12px 28px;
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+    }
+    .btn-explore:hover {
+      background-color: #c0392b;
+    }
+    /* Input box container */
+    .explore-container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .explore-input {
+      width: 100%;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border: 2px solid #e74c3c;
+      border-radius: 50px;
+      outline: none;
+      transition: border-color 0.3s ease;
+      margin-bottom: 10px;
+    }
+    .explore-input:focus {
+      border-color: #c0392b;
+      box-shadow: 0 0 8px #e74c3caa;
+    }
+    body.dark {
+  background-color: #2c3e50;
+  color: #ddd;
+}
+body.dark .navbar-dark {
+  background-color: #1a252f;
+}
+body.dark .card, body.dark .bio-paragraph {
+  background-color: #34495e;
+  color: #eee;
+}
+body.dark .footer {
+  background-color: #1a252f;
+}
+                   
+    
+
+  </style>
+</head>
+<body>
+    
+    <button id="themeSwitcher" class="btn btn-sm btn-secondary ms-3">Dark Mode</button>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="logopic.png" alt="Logo" style="height: 40px; margin-right: 10px;" />
+      MonuHeritage
+    </a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navContent">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="north.html">NORTH</a></li>
+        <li class="nav-item"><a class="nav-link" href="south.html">SOUTH</a></li>
+        <li class="nav-item"><a class="nav-link" href="east.html">EAST</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#">WEST</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+   <button id="topBtn" class="btn btn-danger" style="position:fixed;bottom:30px;right:30px;display:none;">
+  ↑ Top
+  </button>
+
+<!-- Modal -->
+<div class="modal fade" id="exploreModal" tabindex="-1" aria-labelledby="exploreModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exploreModalLabel">Explore Monument</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <input id="monumentInputModal" class="form-control mb-3" placeholder="Enter Gateway, Rani, or Mehrangarh" />
+        <div id="monumentMessage" class="alert alert-info" style="display:none;"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button id="exploreModalBtn" type="button" class="btn btn-danger">Explore</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Intro Section -->
+<section class="container py-5">
+  <h1 class="text-center animate__animated animate__fadeInDown">🌅 West Zone Heritage Marvels</h1>
+  <p class="lead text-center text-muted animate__animated animate__fadeInUp" style="max-width: 800px; margin: 0 auto;">
+    Explore the majestic forts and ancient temples of West India, from the imposing <em>Gateway of India</em> in Mumbai to the magnificent <em>Rani ki Vav</em> in Gujarat.
+  </p>
+</section>
+
+<!-- Carousel -->
+<header class="mb-5">
+  <div id="carouselWest" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselWest" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Gateway of India"></button>
+      <button type="button" data-bs-target="#carouselWest" data-bs-slide-to="1" aria-label="Rani ki Vav"></button>
+      <button type="button" data-bs-target="#carouselWest" data-bs-slide-to="2" aria-label="Mehrangarh Fort"></button>
+    </div>
+    <div class="carousel-inner rounded-4 overflow-hidden shadow">
+      <div class="carousel-item active">
+        <img src="Gateway of India pic.webp" class="d-block w-100" alt="Gateway of India" />
+        <div class="carousel-caption bg-dark bg-opacity-50 rounded">
+          <h5>Gateway of India</h5>
+          <p>The Iconic Monument of Mumbai</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="Rani ki Vav pic.webp" class="d-block w-100" alt="Rani ki Vav" />
+        <div class="carousel-caption bg-dark bg-opacity-50 rounded">
+          <h5>Rani ki Vav</h5>
+          <p>The Magnificent Stepwell of Gujarat</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="The Majestic Fort pic.webp" class="d-block w-100" alt="Mehrangarh Fort" />
+        <div class="carousel-caption bg-dark bg-opacity-50 rounded">
+          <h5> </h5>
+          <p>The Majestic Fort of Jodhpur</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselWest" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselWest" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</header>
+
+<!-- Did You Know Section -->
+<section class="container my-5">
+  <h2 class="text-center mb-4">Did You Know?</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title"><i class="fa-solid fa-archway"></i> Gateway of India</h5>
+          <p class="card-text">Built in 1924, it served as a ceremonial entrance to India for Viceroys and Governors.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title"><i class="fa-solid fa-water"></i> Rani ki Vav</h5>
+          <p class="card-text">An intricately constructed stepwell, recognized as a UNESCO World Heritage Site.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title"><i class="fa-solid fa-fortress"></i> Mehrangarh Fort</h5>
+          <p class="card-text">One of the largest forts in India, standing 400 feet above the city of Jodhpur.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Monument Cards -->
+<section class="container my-5">
+  <h2 class="text-center mb-5">Famous West Monuments</h2>
+  <div class="row text-center">
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm border-0">
+        <img src="Gateway of India pic.webp" class="zoom-img" alt="Gateway of India" />
+        <div class="card-body">
+          <h5 class="card-title">Gateway of India - Mumbai</h5>
+          <p class="card-text">A historic arch-monument built during the 20th century, symbolizing colonial India's grand entrance.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm border-0">
+        <img src="Rani ki Vav pic.webp" class="zoom-img" alt="Rani ki Vav" />
+        <div class="card-body">
+          <h5 class="card-title">Rani ki Vav - Gujarat</h5>
+          <p class="card-text">A stepwell built as a memorial to a queen, showcasing stunning sculptures and architectural design.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm border-0">
+        <img src="The Majestic Fort pic.webp" class="zoom-img" alt="Mehrangarh Fort" />
+        <div class="card-body">
+          <h5 class="card-title">Mehrangarh Fort - Jodhpur</h5>
+          <p class="card-text">A massive fort known for its impressive walls, intricate carvings, and panoramic city views.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bio Highlight -->
+<section class="container my-5">
+  <div class="text-center mb-4">
+    <h2 class="eiffel-title">🏰 Gateway of India – The Iconic Mumbai Landmark</h2>
+    <p class="text-muted" style="max-width: 800px; margin: 0 auto;">Symbolizing the historical significance and architectural grandeur of colonial India.</p>
+  </div>
+  <div class="bio-paragraph">
+    The Gateway of India was built to commemorate the landing of King George V and Queen Mary in 1911. It is an architectural marvel blending Hindu and Muslim styles and serves as a popular tourist attraction.
+  </div>
+</section>
+
+<!-- Explore Monument Input Section -->
+<section class="text-center my-5">
+  <h2 class="mb-3">🎯 Explore More</h2>
+  <p>Type a monument name and learn something new!</p>
+  <div class="explore-container">
+    <input type="text" id="monumentInput" class="explore-input" placeholder="Enter Gateway, Rani, or Mehrangarh" />
+    <button class="btn btn-explore" onclick="exploreMonument()">Explore Monument</button>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 <strong>MonuHeritage</strong>. All Rights Reserved.</p>
+  <p style="font-style: italic;">Specially created with ❤️ for Miss Nimra and the heritage of West India.</p>
+  <div class="social-icons">
+    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JavaScript Explore Monument Function -->
+<script>
+  function exploreMonument() {
+    const monumentInput = document.getElementById('monumentInput');
+    const monument = monumentInput.value.trim().toLowerCase();
+
+    if (!monument) {
+      alert("Please enter a monument name!");
+      return;
+    }
+
+    let message = "";
+
+    switch (monument) {
+      case "gateway":
+        message = "The Gateway of India was built in 1924 as a ceremonial entrance to India.";
+        break;
+      case "rani":
+      case "rani ki vav":
+        message = "Rani ki Vav is a UNESCO World Heritage stepwell with intricate sculptures.";
+        break;
+      case "mehrangarh":
+        message = "Mehrangarh Fort is one of the largest and most magnificent forts in India.";
+        break;
+      default:
+        message = "Sorry! No information available for that monument.";
+    }
+
+    alert(message);
+    monumentInput.value = "";
+  }
+  
+  document.getElementById('exploreModalBtn').addEventListener('click', () => {
+  const val = document.getElementById('monumentInputModal').value.trim().toLowerCase();
+  const msgDiv = document.getElementById('monumentMessage');
+  let msg = 'Sorry! No information available.';
+  if (val === 'gateway') msg = 'The Gateway of India was built in 1924...';
+  else if (val.includes('rani')) msg = 'Rani ki Vav is a UNESCO stepwell...';
+  else if (val.includes('mehrangarh')) msg = 'Mehrangarh Fort is one of India’s largest forts.';
+  msgDiv.innerText = msg;
+  msgDiv.style.display = 'block';
+});
+ 
+const topBtn = document.getElementById('topBtn');
+window.addEventListener('scroll', () => {
+  if (document.documentElement.scrollTop > 300) topBtn.style.display = 'block';
+  else topBtn.style.display = 'none';
+});
+topBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+
+</script>
+
+</body>
+</html>
